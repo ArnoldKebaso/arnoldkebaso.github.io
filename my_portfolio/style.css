@@ -99,11 +99,19 @@ header{
 
 }
 .home-content p{
-    font-size: 20px;
+    font-size: 19px;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: .1s;
+    padding-bottom: 20px;
 }
+#bold{
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: .1s;
+    font-size: 19px;
+}
+
 .home-hero a{
     display: inline-flex;
     justify-content: center;
@@ -499,6 +507,7 @@ header{
 }
 .main-text h2 span{
     color: #0ef;
+    padding-left: 10px;
 }
 .portfolio-content{
     display: grid;
@@ -564,6 +573,16 @@ header{
 }
 .row:hover .layer{
     height: 100%;
+}
+#mywebsite a {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: underline;
+    transition: .5s ease;
+}
+#mywebsite a:hover{
+    color: #ff004f;
+    
 }
 .contact{
     display: block;
@@ -806,7 +825,7 @@ header{
         position: fixed;
         top: 0;
         right: -300px;
-        height: 40vh;
+        height: 50vh;
         width: 230px;
         background-color: #081b29;
         box-shadow: 0 40px 60px rgb(0, 0, 0.1);
