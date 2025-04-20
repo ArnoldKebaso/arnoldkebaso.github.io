@@ -1,1311 +1,233 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-*{
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    
-}
-html {
-    scroll-behavior: smooth;
-}
-body{
-    color: #ededed;
-    background: #081b29;
-}
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: #081b29;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-.logo{
-    position: relative;
-    font-size: 26px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    cursor: default;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-}
-.navbar a{
-    display: inline-block;
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 35px;
-    transition:  .3s;
-    opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.2s * var(--1));
-}
-.navbar a:hover{
-    color: #0ef;
-}
-#mobile{
-    display: none;
-    align-items: center;
-}
-#close{
-    display: none;
-}
-.home{
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-    height: 100vh;
-    background: #081b29;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    padding: 70px 10% 0;
-}
-.home-content{
-    max-width: 600px;
-}
-.home-content h3{
-    font-size: 30px;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: .7s;
-}
-.home-content h3:nth-of-type(2){
-    margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: .7s;
-}
-.home-content h3 span{
-    color: #0ef;
-}
-.home-content h1{
-    font-size: 30px;
-    font-weight: 600;
-    margin: -3px 0;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-    animation-delay: .1s;
-    
-
-}
-.home-content p{
-    font-size: 19px;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: .1s;
-    padding-bottom: 20px;
-}
-#bold{
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: .1s;
-    font-size: 19px;
-}
-
-.home-hero a{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    font-size: 20px;
-    transition: .5s ease;
-    opacity: 0;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: calc(.2s *var(--1));
-    color: #0ef;
-    text-decoration: none;
-    margin: 30px 15px 30px 0;
-}
-.home-hero a:hover{ 
-    background: #0ef;
-    color: #081b29;
-    box-shadow: 0 0 20px #0ef;
-}
-.btn-box{
-    display: inline-block;
-    padding: 12px 28px;
-    background: #0ef;
-    border-radius: 40px;
-    font-size: 16px;
-    color: #081b29;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef,
-    0 0 25px #0ef
-
-}
-.btn-box:hover{
-    box-shadow: 0 0 5px cyan,
-    0 0 25px cyan, 0 0 50px cyan,
-    0 0 100px cyan, 0 0 200px cyan
-}
-.about{
-    display: flex;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 1.5rem;
-    margin-left: 30px;
-    margin-right: 20px;
-}
-.about-img img{
-    padding-bottom: 20%;
-    max-width: 800px;
-    height: 600px;
-    width: auto;
-    border-radius: 8px;
-    object-fit: cover;
-}
-.about-text h2{
-    font-size: 60px;
-}
-.about-text h2 span{
-    color: #0ef;
-}
-.about-text h4{
-    font-size: 29px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.8;
-    margin: 15px 0 30px;
-}
-.about-text p{
-    color: aliceblue;
-    font-size: 24px;
-    line-height: 1.4;
-    margin-bottom: 4rem;
-}
-#services{
-    color: aliceblue;
-    font-size: 20px;
-    line-height: 1.4;
-    margin-bottom: 4rem;
-}
-
-.sub-title{
-    text-align: center;
-    font-size: 60px;
-    
-}
-.sub-title span{
-    color: #0ef;
-}
-.debug{
-    padding: 40px 80px;
-}
-.services-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-.services-list div{
-    background-color: transparent;
-    padding: 40px;
-    font-size: 13px;
-    font-weight: 13px;
-    border-right: 10px;
-    border-radius: 20px;
-    border-radius: 20px;
-    transition: background 0.5s transform 0.5s;
-    box-shadow: 1px 1px 20px #012290f7,
-               1px 1px 40px #0053b0f7
-}
-.services-list div i{
-    font-size: 70px;
-    margin-bottom: 30px;
-
-}
-.services-list div h2{
-    font-size: 34px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-.services-list a{
-    text-decoration: none;
-    color: #000000;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
-}
-.services-list p{
-    font-size: 25px;
-    font-weight: 400;
-}
-.read{
-    display: inline-block;
-    padding: 12px 28px;
-    background: #0ef;
-    border-radius: 40px;
-    font-size: 16px;
-    color: #081b29;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 500;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef,
-    0 0 25px #0ef
-
-}
-.read:hover{
-    box-shadow: 0 0 5px cyan,
-    0 0 25px cyan, 0 0 50px cyan,
-    0 0 100px cyan, 0 0 200px cyan;
-}
-.services-list div:hover{
-    transform: translateY(-20px);
-    background: #000000;
-}
-/*.section{
-    display: flex;
-    flex-wrap: wrap;
-}*/
-.container1{
-    width: 600px;
-    height: 500px;
-    padding: 40px 10px;
-    margin-left: 100px;
-}
-
-.heading1{
-    text-align: center;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 5px;
-    margin-bottom: 50px;
-}
-.bar{
-    font-size: 23px;
-}
-.technical-bars .bar{
-    margin-top: 40px 0;
-}
-.technical-bars .bar:first-child{
-    margin-top: 0;
-}
-.technical-bars .bar:last-child{
-    margin-bottom: 0;
-}
-.technical-bars .bar .info{
-    margin-bottom: 5px;
-}
-.technical-bars .bar .info span{
-    font-size: 18px;
-    font-weight: 600;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-}
-.technical-bars .bar .progress-line{
-    position: relative;
-    border-radius: 10px;
-    width: 100%;
-    height: 5px;
-    background-color: black;
-    animation: animate 1s cubic-bezier(1, 0, 0.5, 1 ) forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-@keyframes animate{
-    100%{
-        transform: scaleX(1);
-    }
-}
-
-.technical-bars .bar .progress-line span{
-    height: 100%;
-    background-color: #0ef;
-    position: absolute;
-    border-radius: 10px;
-    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.progress-line.html span{
-    width: 90%;
-}
-.progress-line.css span{
-    width: 85%;
-}
-.progress-line.javascript span{
-    width: 80%;
-}
-.progress-line.react span{
-    width: 70%;
-}
-.progress-line.python span{
-    width: 85%;
-}
-.progress-line span::after{
-    position: absolute;
-    padding: 1px 8px;
-    background-color: #000;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 3px;
-    top: -40px;
-    right: -20px;
-    animation: showText 0.5s 1.5s linear forwards;
-    opacity: 0;
-}
-.progress-line.html span::after{
-    content: "90%";
-}
-.progress-line.css span::after{
-    content: "85%";
-}
-.progress-line.javascript span::after{
-    content: "80%";
-}
-.progress-line.react span::after{
-    content: "70%";
-}
-.progress-line.python span::after{
-    content: "85%";
-}
-.progress-line.html span::before{
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000;
-    top: -10px;
-    right: 0;
-    animation: showText 0.5s 1.5s linear forwards;
-    opacity: 0;
-
-}
-@keyframes showText{
-    100%{
-        opacity: 1;
-    }
-}
-.radial-bars{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-.radial-bars .radial-bar{
-    width: 50%;
-    height: 170px;
-    margin-bottom: 10px;
-    position: relative;
-}
-.radial-bars .radial-bar svg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 120px;
-    height: 160px;
-}
-.radial-bars .radial-bar .progress-bar{
-    stroke-width: 10;
-    stop-color: #000;
-    stop-opacity: 0;
-    fill: transparent;
-    stroke-dasharray: 502;
-    stroke-dashoffset: 502;
-    stroke-linecap: round;
-    animation: animate-bar 1s linear forwards;
-}
-@keyframes animate-bar{
-    100%{
-        stroke-dashoffset: -1;
-    }
-}
-.path{
-    stroke-width: 10;
-    stroke: cyan;
-    fill: transparent;
-    stroke-dasharray: 502;
-    stroke-dashoffset: 502;
-    stroke-linecap: round;
-    
-}
-.path-1{animation: animate-path1 1s 1s linear forwards;}
-.path-2{animation: animate-path2 1s 1s linear forwards;}
-.path-3{animation: animate-path3 1s 1s linear forwards;}
-.path-4{animation: animate-path4 1s 1s linear forwards;}
-@keyframes animate-path1{
-    100%{
-        stroke-dashoffset: 50;;
-    }
-}
-@keyframes animate-path2{
-    100%{
-        stroke-dashoffset: 175;;
-    }
-}
-@keyframes animate-path3{
-    100%{
-        stroke-dashoffset: 125;;
-    }
-}
-@keyframes animate-path4{
-    100%{
-        stroke-dashoffset: 75;;
-    }
-}
-.radial-bar .percentage{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 17px;
-    font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-
-}
-.radial-bar .text {
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50px);
-    font-size: 17px;
-    font-weight: 600;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-}
-.main-text{
-    padding-top: 70px;
-    margin-top: 70px;
-
-}
-.main-text h2{
-    font-size:60px ;
-    line-height: 1;
-    text-align: center;
-}
-.main-text h2 span{
-    color: #0ef;
-    padding-left: 10px;
-}
-.portfolio-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(359px, auto));
-    grid-gap: 40px;
-    margin-top: 50px;
-    padding: 10px 26px;
-}
-.row{
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.row img{
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-    transition: transform 0.5s;
-
-}
-.layer{
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0, 0, 0,0.1),#0ef);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 40px;
-    transition: height 0.5s;
-}
-.layer h5{
-    color: #000;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-.layer p{
-    color: #000;
-    font-size: 1rem;
-    line-height: 1.8;
-}
-.layer i{
-    color: #ff004f;
-    margin-top: 20px;
-    font-size: 20px;
-    background: #fff;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-.row:hover img{
-    transform: scale(1.1);
-}
-.row:hover .layer{
-    height: 100%;
-}
-#mywebsite a {
-    color: #fff;
-    font-size: 1rem;
-    text-decoration: underline;
-    transition: .5s ease;
-}
-#mywebsite a:hover{
-    color: #ff004f;
-    
-}
-.contact{
-    display: block;
-    padding-left: 30px;
-    margin-top: 130px;
-}
-.contact-text h2{
-    font-size: 90px;
-    line-height: 1;
-    text-align: left;
-}
-.contact-text h2 span{
-    color: #0ef;
-    padding-left: 20px;
-}
-.contact-text h4{
-    margin: 15px 0;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-
-}
-.contact-text p{
-    color: rgba(177,177,177);
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 2rem;
-    font-weight: 500;
-    padding-right: 20px;
-}
-
-.contact-list{
-    margin-bottom: 3rem;
-}
-.contact-list li{
-    font-size: 20px;
-    margin-bottom: 10px;
-    display: block;
-}
-.contact-list i{
-    display: inline-block;
-    color: #0ef;
-    font-size: 20px;
-    font-weight: 400;
-    transition: all .40s ease;
-
-}
-.contact-list li a:hover{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    font-size: 20px;
-    color: #0ef;
-    text-decoration: none;
-    margin: 30px 15px 30px  0;
-    transition: .5s ease;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: calc(.2s * var(--1));
-
-}
-.contact-icons i{
-    font-size: 25px;
-}
-.contact-icons i:hover{
-    background: #0ef;
-    color: #000;
-    box-shadow: 0 0 20px #0ef;
-
-}
-.contact-form form{
-    position: relative;
-}
-.contact-form p{
-    font-size: 30px;
-    padding-right: 10px;
-    margin-bottom: 2rem;
-}
-.contact-form form input, form textarea{
-    border: none;
-    outline: none;
-    width: 90%;
-    padding: 15px;
-    background: #555557;
-    color: #000;
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    border-radius: 0.5rem;
-}
-.contact-form textarea{
-    resize: none;
-    height: 220px;
-    margin-bottom: 1rem;
-}
-.contact-form form .send{
-    display: inline-block;
-    padding: 14px 60px;
-    background: #0ef;
-    border-radius: 40px;
-    font-size: 18px;
-    color: #081b29;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 500;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 5px #0ef,
-    0 0 25px #0ef
-}
-.contact-form form .send:hover{
-    box-shadow: 0 0 5px cyan,
-    0 0 25px cyan, 0 0 50px cyan,
-    0 0 100px cyan, 0 0 200px cyan;
-}
-.last-text p{
-    width: 100%;
-    text-align: center;
-    padding: 25px 0;
-    font-weight: 300;
-    margin-top: 70px;
-    width: 100%;
-    text-align: center;
-    padding: 25px 5px;
-    font-weight: 400;
-    font-size: 30px;
-    border: 1px solid #555557;
-    color: #fff;
-    background: #565557;
-    
-}
-.top{
-    position: fixed;
-    bottom: 2.1rem;
-    right: 2.1rem;
-}
-.top i{
-    color: #000;
-    background: #0ef;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 0.5rem;
-}
-/* styling the key frames*/
-
-@keyframes slideRight{
-    0%{
-    transform: translateX(100px);
-    opacity: 0;
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-@keyframes slideLeft{
-    0%{
-    transform: translateX(-100px);
-    opacity: 0;
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-@keyframes slideTop{
-    0%{
-    transform: translateY(100px);
-    opacity: 0;
-    }
-    100%{
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-@keyframes slideBottom{
-    0%{
-    transform: translateY(-100px);
-    opacity: 0;
-    }
-    100%{
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*--CSS media query for medium screen devices--*/
-@media (max-width: 799px){
-    header {
-        position: fixed;
-        display: flex;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding-bottom: 5px;
-        background: #081b29;
-        justify-content: center;
-        align-items: flex-start;
-        z-index: 50;
-    }
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        height: 50vh;
-        width: 230px;
-        background-color: #081b29;
-        box-shadow: 0 40px 60px rgb(0, 0, 0.1);
-        padding: 80px 0 0 10px;
-        transition: 0.3s;
-}
-    #navbar.active{
-        right: 0px;
-    
-}
-    #navbar a{
-        margin-bottom: 25px;
-    }
-    #mobile{
-        display: flex;
-        align-items: center;
-        padding-left: 350px;
-    }
-    #mobile i{
-        color: cyan;
-        font-size: 24px;
-        padding-left: 20px;
-    }
-    #close{
-        display: initial;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        color: cyan;
-        font-size: 24px;
-    }
-    .about {
-        display: block;
-    }
-    .about-img img{
-        padding-bottom: 5px;
-        padding-left: 70px;
-        padding-right: 40px;
-        background-size: cover;
-        text-align: center;
-        width: 100%;
-    }
-    .about-text{
-        padding: 0px 28px;
-        font-size: 30px;
-    }
-    .debug {
-        padding: 33px 28px;
-    }
-    .services-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
-        grid-gap: 26px;
-    }
-    .sub-title {
-        padding-bottom: 5px;
-    }
-    .container1 {
-        padding: 30px 10px;
-        margin-left: 30px;
-    }
-    .heading1 {
-        text-align: center;
-        text-decoration: underline;
-        text-underline-offset: 10px;
-        text-decoration-thickness: 6px;
-        margin-bottom: 30px;
-    }
-    .main-text {
-        padding-top: 50px;
-        margin-top: 60px;
-    }
-    .layer h5 {
-        color: #000;
-        font-size: 50px;
-        font-weight: 500;
-        margin-bottom: 15px;
-    }
-    .layer p {
-        color: black;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 1.8;
-    }
-    .portfolio-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(359px, auto));
-        grid-gap: 50px;
-        margin: 50px 30px;
-        padding: 0px 10px;
-    }
-    .contact {
-        display: block;
-        padding-left: 30px;
-        margin-top: 80px;
-    }
-    .contact-text h2 {
-        font-size: 70px;
-        line-height: 1;
-        text-align: left;
-    }
-    .contact-text h4 {
-        margin: 15px 0;
-        color: #fff;
-        font-size: 30px;
-        font-weight: 500;
-    }
-    .contact-text p {
-        color: rgba(177,177,177);
-        font-size: 25px;
-        line-height: 30px;
-        margin-bottom: 1rem;
-        text-align: left;
-        padding-right: 10px;
-    }
-    .contact-list {
-        margin-bottom: 1rem;
-        font-size: 28px;
-    }
-    .contact-icons i{
-        font-size: 40px;
-        margin-bottom: 2rem;
-    }
-    .contact-form p {
-        font-size: 25px;
-        padding-right: 10px;
-        margin-bottom: 2rem;
-    }
-    .contact-form form {
-        position: relative;
-        width: 100%;
-    }
-    .contact-form textarea {
-        margin-bottom: 2rem;
-    }
-    .last-text p {
-        width: 100%;
-        text-align: center;
-        padding: 25px 5px;
-        font-weight: 400;
-        margin-top: 60px;
-        font-size: 30px;
-        border: 1px solid #555557;
-        color: #fff;
-        background: #565557;
-        
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 477px){
-    #navbar{
-        height: 60vh;
-    }
-    .home-content {
-        max-width: 800px;
-        margin-top: 90px;
-    }
-    .home-content p {
-        font-size: 30px;
-        opacity: 0;
-        animation: slideLeft 1s ease forwards;
-        animation-delay: .1s;
-        width: 600px;
-        margin-bottom: 2rem;
-    }
-    .home-content strong{
-        font-size: 30px;
-    }
-    .home-hero{
-        font-size: 50px;
-        display: flex;
-    }
-    .about-img img {
-        width: 600px;
-        margin-top: 120px;
-    }
-    .about-text {
-        padding: 10px 28px;
-        font-size: 0px;
-        width: 700px;
-    }
-    .about-text p {
-        color: aliceblue;
-        font-size: 32px;
-        line-height: 1.4;
-        margin-bottom: 2rem;
-    }
-    .btn-box {
-        display: inline-block;
-        padding: 12px 28px;
-        background: #0ef;
-        border-radius: 40px;
-        font-size: 28px;
-        color: #081b29;
-        letter-spacing: 1px;
-        text-decoration: none;
-        font-weight: 600;
-        opacity: 0;
-        animation: slideTop 1s ease forwards;
-        animation-delay: 2s;
-        box-shadow: 0 0 5px #0ef,
-        0 0 25px #0ef;
-    }
-    .sub-title {
-        padding: 0px 170px;
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-    }
-    .sub-title span {
-        padding-left: 10px;
-    }
-    .services-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
-        grid-gap: 37px;
-        width: 500px;
-        margin-left: 75px;
-    }
-    .services-list div i {
-        font-size: 70px;
-        margin-bottom: 30px;
-    }
-    .services-list div h2 {
-        font-size: 30px;
-        font-weight: 500;
-        margin-bottom: 15px;
-    }
-    .services-list div h2 {
-        font-size: 30px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-    .services-list div p {
-        font-size: 30px;
-        font-weight: 400;
-        margin-bottom: 10px;
-    }
-    .services-list a {
-        text-decoration: none;
-        font-weight: 500;
-        color: #000000;
-        font-size: 24px;
-        margin-top: 10px;
-        display: inline-block;
-    }
-    .heading1 {
-        font-size: 30px;
-    }
-    .technical-bars .bar .info span {
-        font-size: 29px;
-        font-weight: 400;
-        animation: showText 0.5s 1s linear forwards;
-        opacity: 0;
-    }
-    .radial-bar .text {
-        width: 100%;
-        position: absolute;
-        text-align: left;
-        left: 50%;
-        bottom: -5px;
-        transform: translateX(-50px);
-        font-size: 29px;
-        animation: showText 0.5s 1s linear forwards;
-        opacity: 0;
-    }
-    .radial-bar .percentage {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 30px;
-        font-weight: 500;
-        animation: showText 0.5s 1s linear forwards;
-        opacity: 0;
-    }
-    .main-text h2 {
-        font-size: 60px;
-        padding-left: 40px;
-    }
-    .main-text h2 span {
-        padding-left: 20px;
-    }
-    .portfolio-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(359px, auto));
-        grid-gap: 40px;
-        width: 600px;
-        margin-left: 50px;
-    }
-    .row img {
-        width: 100%;
-        border-radius: 20px;
-        display: block;
-        transition: transform 0.5s;
-        height: max-content;
-    }
-    .layer h5 {
-        color: red;
-        font-size: 50px;
-        font-weight: 500;
-        margin-bottom: 15px;
-    }
-    .layer p {
-        color: black;
-        font-size: 20px;
-        font-weight: 700;
-        
-    }
-    .contact-text{
-        width: 650px;
-    }
-    .contact-text h2 {
-        font-size: 70px;
-        line-height: 1;
-        text-align: left;
-    }
-    .contact-text h2 span {
-        padding-left: 20px;
-    }
-    .contact-text h4 {
-        margin: 15px 0;
-        color: #fff;
-        font-size: 40px;
-        font-weight: 500;
-    }
-    .contact-text p {
-        color: rgba(177,177,177);
-        font-size: 30px;
-        margin-bottom: 1rem;
-        text-align: left;
-        padding-right: 15px;
-        font-weight: 400;
-    }
-    .contact-list {
-        margin-bottom: 1rem;
-        font-size: 40px;
-    }
-    .contact-list i {
-        display: inline-block;
-        color: #0ef;
-        font-size: 33px;
-        font-weight: 200;
-        transition: all .40s ease;
-        padding-bottom: 20px;
-    }
-    .contact-icons i{
-        font-size: 50px;
-        margin-bottom: 2rem;
-    }
-    .contact-form{
-        width: 600px;
-    }
-    .contact-form p {
-        font-size: 30px;
-        padding-right: 10px;
-        margin-bottom: 2rem;
-    }
-    .contact-form form {
-        position: relative;
-        width: 100%;
-    }
-    .contact-form form input, form textarea {
-        border: none;
-        outline: none;
-        width: 650px;
-        padding: 15px;
-        background: #555557;
-        color: #000;
-        font-size: 30px;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-        border-radius: 0.5rem;
-    }
-    .contact-form textarea {
-        margin-bottom: 2rem;
-        font-size: 35px;
-    }
-    .contact-form form .send {
-        display: inline-block;
-        padding: 14px 60px;
-        background: #0ef;
-        border-radius: 40px;
-        font-size: 27px;
-        color: #081b29;
-        letter-spacing: 1px;
-        text-decoration: none;
-        font-weight: 600;
-        opacity: 0;
-        animation: slideTop 1s ease forwards;
-        animation-delay: 2s;
-        box-shadow: 0 0 5px #0ef,
-        0 0 25px #0ef;
-    }
-    .last-text p {
-        width: 700px;
-        text-align: center;
-        padding: 25px 5px;
-        font-weight: 400;
-        margin-top: 60px;
-        font-size: 35px;
-        border: 1px solid #555557;
-        color: #fff;
-        background: #565557;
-        
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Arnold Kebaso — Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pfG/…YourIntegrityHash…=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- AOS for scroll animations -->
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Typed.js for hero text -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    /* custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb { background: #0cf; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <a href="#home" class="text-2xl font-bold">Arnold Kebaso</a>
+      <nav class="hidden md:flex space-x-6 text-lg">
+        <a href="#home" class="hover:text-cyan-400">Home</a>
+        <a href="#about" class="hover:text-cyan-400">About</a>
+        <a href="#skills" class="hover:text-cyan-400">Skills</a>
+        <a href="#latest-work" class="hover:text-cyan-400">Latest Work</a>
+        <a href="#contact" class="hover:text-cyan-400">Contact</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-gray-800">
+      <a href="#home" class="block px-4 py-2 hover:bg-gray-700">Home</a>
+      <a href="#about" class="block px-4 py-2 hover:bg-gray-700">About</a>
+      <a href="#skills" class="block px-4 py-2 hover:bg-gray-700">Skills</a>
+      <a href="#latest-work" class="block px-4 py-2 hover:bg-gray-700">Latest Work</a>
+      <a href="#contact" class="block px-4 py-2 hover:bg-gray-700">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section id="home" class="pt-24 min-h-screen flex items-center">
+    <div class="max-w-4xl mx-auto text-center px-4" data-aos="fade-up">
+      <p class="text-xl mb-2">Welcome to my website</p>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I’m <span class="text-cyan-400">Arnold Kebaso</span></h1>
+      <p class="text-2xl md:text-3xl mb-6">
+        a <span id="typed-text" class="text-cyan-400 font-semibold"></span>
+      </p>
+      <p class="max-w-2xl mx-auto mb-8">
+        I’m a versatile Software Engineer, Full‑Stack Developer, IoT Developer, and AWS Cloud Practitioner. Driven by a passion for building meaningful digital experiences, I blend technical proficiency with creativity to deliver scalable web and mobile solutions.
+      </p>
+      <div class="flex justify-center space-x-6 text-2xl mb-8">
+        <a href="https://github.com/ArnoldKebaso" target="_blank" class="hover:text-cyan-400"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/arnold-kebaso-505982256/" target="_blank" class="hover:text-cyan-400"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="hover:text-cyan-400"><i class="fab fa-twitter"></i></a>
+      </div>
+      <a href="Arnold_Kebaso_Onchieku_CV.pdf" download class="inline-block bg-cyan-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-cyan-500 transition">
+        My Resume
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 bg-gray-800">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center px-4">
+      <div data-aos="fade-right">
+        <!-- YOUR HEADSHOT IMAGE URL HERE -->
+        <img src="<!-- HEADSHOT_URL -->" alt="Arnold Kebaso" class="rounded-lg shadow-lg"/>
+      </div>
+      <div data-aos="fade-left">
+        <h2 class="text-4xl font-bold mb-4">About <span class="text-cyan-400">Me</span></h2>
+        <p class="mb-4">
+          I’m finishing my B.Sc. in Computer Science at Egerton University with 3+ years in full‑stack and IoT development. My work has ranged from decoding NB‑IoT payloads for analytics to building AI‑powered disaster alert systems.
+        </p>
+        <p class="mb-4">
+          I excel at designing RESTful APIs (NestJS, Django), optimizing databases (MySQL, PostgreSQL), and automating CI/CD pipelines (Jenkins, Docker, Kubernetes). My recent project won 2nd Runner‑Up at the Kenya Red Cross Symposium.
+        </p>
+        <a href="#skills" class="inline-block bg-cyan-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-cyan-500 transition">
+          My Skills
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Skills</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Visible Skills -->
+        <ul class="space-y-4" data-aos="fade-right">
+          <li><strong>JavaScript & TypeScript</strong> — 85%</li>
+          <li><strong>React.js & Next.js</strong> — 75%</li>
+          <li><strong>Node.js & NestJS</strong> — 70%</li>
+          <li><strong>Python & Django (learning)</strong> — 65%</li>
+          <li><strong>AWS (EC2, Lambda)</strong> — 70%</li>
+        </ul>
+        <!-- Hidden More Skills -->
+        <ul id="more-skills" class="space-y-4 hidden" data-aos="fade-left">
+          <li><strong>Docker & Kubernetes</strong> — 60%</li>
+          <li><strong>MySQL & PostgreSQL</strong> — 80%</li>
+          <li><strong>HTML & CSS</strong> — 90%</li>
+          <li><strong>Git & GitHub</strong> — 85%</li>
+          <li><strong>CI/CD (Jenkins)</strong> — 75%</li>
+        </ul>
+      </div>
+      <div class="text-center mt-8">
+        <button id="toggle-skills" class="bg-cyan-400 text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-cyan-500 transition">
+          Load More
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST WORK -->
+  <section id="latest-work" class="py-16 bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Latest Work</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Project 1 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in">
+          <img src="<!-- PROJECT1_IMG_URL -->" alt="Flood Alert System" class="w-full h-48 object-cover"/>
+          <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition p-6 flex flex-col justify-center text-center">
+            <h3 class="text-xl font-semibold text-white mb-2">Flood Alert System</h3>
+            <p class="text-gray-300 mb-4">AI‑powered disaster management with SMS alerts and multilingual support.</p>
+            <a href="https://github.com/ArnoldKebaso/Disaster_monitoring_and_alert_system" target="_blank"
+              class="inline-block bg-cyan-400 text-gray-900 px-4 py-2 rounded-full font-medium hover:bg-cyan-500 transition">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+          <img src="<!-- PROJECT2_IMG_URL -->" alt="Japanese Portal" class="w-full h-48 object-cover"/>
+          <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition p-6 flex flex-col justify-center text-center">
+            <h3 class="text-xl font-semibold text-white mb-2">Japanese Learning Portal</h3>
+            <p class="text-gray-300 mb-4">NestJS + React app with transactional reviews & learning analytics.</p>
+            <a href="https://github.com/ArnoldKebaso" target="_blank"
+              class="inline-block bg-cyan-400 text-gray-900 px-4 py-2 rounded-full font-medium hover:bg-cyan-500 transition">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+          <img src="<!-- PROJECT3_IMG_URL -->" alt="Leesoft Laundry App" class="w-full h-48 object-cover"/>
+          <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition p-6 flex flex-col justify-center text-center">
+            <h3 class="text-xl font-semibold text-white mb-2">Leesoft Laundry App</h3>
+            <p class="text-gray-300 mb-4">Java Servlets & Mpesa STK push integration for seamless payments.</p>
+            <a href="https://github.com/ArnoldKebaso/LaundryWebApp_with_Mpesa_STK_Push" target="_blank"
+              class="inline-block bg-cyan-400 text-gray-900 px-4 py-2 rounded-full font-medium hover:bg-cyan-500 transition">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16">
+    <div class="max-w-3xl mx-auto text-center px-4" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+      <p class="mb-8">I’m open to new opportunities and collaborations. Feel free to reach out!</p>
+      <div class="space-y-4">
+        <p><i class="fas fa-map-marker-alt text-cyan-400"></i> Nairobi, Kenya</p>
+        <p><i class="fas fa-envelope text-cyan-400"></i>
+          <a href="mailto:arnoldkebaso8@gmail.com" class="hover:text-cyan-400">arnoldkebaso8@gmail.com</a>
+        </p>
+        <p><i class="fas fa-phone text-cyan-400"></i> +254 758 132 658</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center bg-gray-900">
+    <p class="text-gray-500">© 2025 Arnold Kebaso. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // AOS init
+    AOS.init({ once: true });
+
+     // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Typed.js hero animation
+    new Typed('#typed-text', {
+      strings: [
+        'Full‑Stack Developer',
+        'AWS Cloud Practitioner',
+        'IoT Developer',
+        'Software Engineer'
+      ],
+      typeSpeed: 80,
+      backSpeed: 50,
+      loop: true
+    });
+
+    // Load More skills toggle
+    const btn = document.getElementById('toggle-skills');
+    const more = document.getElementById('more-skills');
+    btn.addEventListener('click', () => {
+      more.classList.toggle('hidden');
+      btn.textContent = more.classList.contains('hidden') ? 'Load More' : 'Show Less';
+    });
+  </script>
+</body>
+</html>

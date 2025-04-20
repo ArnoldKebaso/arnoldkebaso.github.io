@@ -1,22 +1,17 @@
-var typed  = new Typed(".text",{
-    strings:["Frontend Developer", "Blogger", "Full Stack Developer","Swift UI Designer","Cyber-security analyst","Programmer"],
-    typeSpeed:100,
-    backSpeed:100,
-    backDelay:1000,
-    loop:true
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
 
-const bar = document.getElementById("bar");
-const close = document.getElementById("close");
-const nav = document.getElementById("navbar");
+// Mobile menu toggle (if needed)
+const menuToggle = document.querySelector('.menu-toggle');
+const navbar = document.querySelector('.navbar');
 
-if (bar) {
-    bar.addEventListener('click', () => {
-        nav.classList.add('active');
-    });
-}
-if (close) {
-    close.addEventListener('click', ()=>{
-        nav.classList.remove('active');
-    });
-}
+menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
