@@ -1,36 +1,55 @@
 import { skills } from '../../data/skills';
 import { motion } from 'framer-motion';
-import { cn } from '../../lib/utils';
 
-function Ring({pct,label}){
-  return(
-    <div className="flex flex-col items-center">
-      <div className="relative w-24 h-24">
+/* CSS ring component — bigger, responsive */
+function Ring({ pct, label }) {
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <div className="relative w-24 h-24 sm:w-28 sm:h-28">
+        {/* progress arc */}
         <div
           className="absolute inset-0 rounded-full"
-          style={{background:`conic-gradient(#18e8ff ${pct*3.6}deg,#2f374a 0deg)`}}
+          style={{
+            background: `conic-gradient(#18e8ff ${pct * 3.6}deg,#2f374a 0deg)`,
+          }}
         />
-        <div className="absolute inset-2 rounded-full bg-surface"/>
-        <span className="absolute inset-0 flex items-center justify-center font-semibold">{pct}%</span>
+        {/* inner hole */}
+        <div className="absolute inset-2 rounded-full bg-surface" />
+        {/* percentage text */}
+        <span className="absolute inset-0 grid place-content-center font-semibold text-gray-100 text-sm">
+          {pct}%
+        </span>
       </div>
-      <p className="mt-3">{label}</p>
+      <p className="text-gray-200 text-sm sm:text-base text-center max-w-[10ch]">
+        {label}
+      </p>
     </div>
   );
 }
 
-export default function Skills(){
-  return(
-    <section id="skills" className="py-20 bg-surface">
-      <motion.h2 className="text-4xl font-bold text-center mb-12"
-        initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} transition={{duration:.5}}
-      >Skills</motion.h2>
+export default function Skills() {
+  return (
+    <section id="skills" className="py-24 bg-surface">
+      <motion.h2
+        className="text-4xl sm:text-5xl font-extrabold text-center text-gray-100 mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Skills
+      </motion.h2>
 
-      <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
-        {skills.map((s,i)=>(
-          <motion.div key={s.label} initial={{opacity:0,scale:.8}}
-            whileInView={{opacity:1,scale:1}} transition={{delay:i*0.1}}
+      <div className="container grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        {skills.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
           >
-            <Ring {...s}/>
+            <Ring {...s} />
           </motion.div>
         ))}
       </div>
