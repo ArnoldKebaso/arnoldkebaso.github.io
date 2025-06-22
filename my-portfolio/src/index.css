@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* fallback gradient for hero */
+.hero-bg {
+  background-image: radial-gradient(circle at 15% 30%, #22d3ee22 0%, transparent 60%),
+    radial-gradient(circle at 85% 25%, #22d3ee11 0%, transparent 60%),
+    radial-gradient(circle at 50% 70%, #22d3ee22 0%, transparent 50%);
+}

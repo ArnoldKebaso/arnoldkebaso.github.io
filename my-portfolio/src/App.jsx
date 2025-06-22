@@ -1,18 +1,23 @@
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Projects from './components/sections/Projects';
+import Contact from './components/sections/Contact';
+
 export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-pink-600">
-      <h1 className="text-4xl font-bold text-white drop-shadow-lg">
-        Tailwind v3.4.17 + Vite!
-      </h1>
-       <h1 className="text-3xl font-bold text-white drop-shadow-lg">
-        Tailwind v3.4.17 + Vite!
-      </h1>
-       <h1 className="text-2xl font-bold text-white drop-shadow-lg">
-        Tailwind v3.4.17 + Vite!
-      </h1>
-       <h1 className="text-xl font-bold text-white drop-shadow-lg">
-        Tailwind v3.4.17 + Vite!
-      </h1>
-    </div>
+    <>
+      <Header />
+      <main className="scroll-smooth">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
