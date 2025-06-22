@@ -1,51 +1,38 @@
 import { skills } from '../../data/skills';
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import Chart from 'chart.js/auto';
+import { cn } from '../../lib/utils';
 
-function Radial({ label, pct, color }) {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = canvasRef.current.getContext('2d');
-    new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: [label, ''],
-        datasets: [{
-          data: [pct, 100 - pct],
-          backgroundColor: [color, '#2f374a'],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        cutout: '70%', responsive: true,
-        plugins: { legend: { display: false }, tooltip: { enabled: false } }
-      }
-    });
-  }, []);
-
-  return (
+function Ring({pct,label}){
+  return(
     <div className="flex flex-col items-center">
-      <canvas ref={canvasRef} width="120" height="120" />
-      <span className="mt-2">{label}</span>
+      <div className="relative w-24 h-24">
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{background:`conic-gradient(#18e8ff ${pct*3.6}deg,#2f374a 0deg)`}}
+        />
+        <div className="absolute inset-2 rounded-full bg-surface"/>
+        <span className="absolute inset-0 flex items-center justify-center font-semibold">{pct}%</span>
+      </div>
+      <p className="mt-3">{label}</p>
     </div>
   );
 }
 
-export default function Skills() {
-  return (
+export default function Skills(){
+  return(
     <section id="skills" className="py-20 bg-surface">
-      <motion.h2
-        className="text-4xl font-bold text-center mb-12"
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: .5 }}
-      >
-        Skills
-      </motion.h2>
+      <motion.h2 className="text-4xl font-bold text-center mb-12"
+        initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} transition={{duration:.5}}
+      >Skills</motion.h2>
 
-      <div className="container mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
-        {skills.map(s => <Radial key={s.label} {...s} />)}
+      <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+        {skills.map((s,i)=>(
+          <motion.div key={s.label} initial={{opacity:0,scale:.8}}
+            whileInView={{opacity:1,scale:1}} transition={{delay:i*0.1}}
+          >
+            <Ring {...s}/>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

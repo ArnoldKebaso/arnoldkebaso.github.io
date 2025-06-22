@@ -1,18 +1,12 @@
-/** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: '#18e8ff',        // bright teal accent
-          dark:   '#12c5db'
-        },
-        surface: '#101625',          // deep navy background
+        surface: '#101625',
+        brand: { DEFAULT: '#18e8ff', dark: '#12c5db' },
       },
-      fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      },
+      fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
     },
   },
   plugins: [],
