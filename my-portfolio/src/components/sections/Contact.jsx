@@ -1,17 +1,53 @@
 import { motion } from 'framer-motion';
 
-export default function Contact(){
-  return(
-    <section id="contact" className="py-16 bg-surface">
-      <motion.div className="container mx-auto max-w-md p-4"
-        initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} transition={{duration:.6}}
+export default function Contact() {
+  return (
+    <section id="contact" className="py-24 bg-surface">
+      <motion.div
+        className="container max-w-lg"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl font-bold text-center mb-6">Get In Touch</h2>
-        <form className="space-y-4" onSubmit={e=>e.preventDefault()}>
-          <input placeholder="Name"   className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
-          <input placeholder="Email"  className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
-          <textarea rows="4" placeholder="Message" className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
-          <button className="w-full bg-brand text-surface py-3 rounded-full font-semibold hover:bg-brand-dark transition">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-gray-100 mb-10">
+          Get In Touch
+        </h2>
+
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="space-y-6 text-gray-100"
+        >
+          <label className="block">
+            <span className="mb-1 block">Name</span>
+            <input
+              required
+              className="w-full rounded-lg bg-surface/70 p-3 ring-1 ring-white/10 focus:ring-brand outline-none"
+            />
+          </label>
+
+          <label className="block">
+            <span className="mb-1 block">Email</span>
+            <input
+              type="email"
+              required
+              className="w-full rounded-lg bg-surface/70 p-3 ring-1 ring-white/10 focus:ring-brand outline-none"
+            />
+          </label>
+
+          <label className="block">
+            <span className="mb-1 block">Message</span>
+            <textarea
+              rows={5}
+              required
+              className="w-full rounded-lg bg-surface/70 p-3 ring-1 ring-white/10 focus:ring-brand outline-none resize-y"
+            />
+          </label>
+
+          <button
+            type="submit"
+            className="w-full rounded-full bg-brand py-3 font-semibold text-surface hover:bg-brand-dark transition"
+          >
             Send Message
           </button>
         </form>
