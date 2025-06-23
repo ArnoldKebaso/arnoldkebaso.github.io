@@ -1,38 +1,17 @@
 import { motion } from 'framer-motion';
 
-export default function Contact() {
-  return (
-    <section id="contact" className="py-16">
-      <motion.div
-        className="container mx-auto px-4 max-w-xl"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: .6 }}
+export default function Contact(){
+  return(
+    <section id="contact" className="py-16 bg-surface">
+      <motion.div className="container mx-auto max-w-md p-4"
+        initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} transition={{duration:.6}}
       >
-        <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
-        <form onSubmit={e => e.preventDefault()} className="space-y-4">
-          <input
-            placeholder="Name"
-            className="w-full px-4 py-2 bg-gray-800 rounded border border-gray-700 focus:border-cyan-400"
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full px-4 py-2 bg-gray-800 rounded border border-gray-700 focus:border-cyan-400"
-            required
-          />
-          <textarea
-            placeholder="Message"
-            rows="5"
-            className="w-full px-4 py-2 bg-gray-800 rounded border border-gray-700 focus:border-cyan-400"
-            required
-          />
-          <button
-            type="submit"
-            className="bg-cyan-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-cyan-500 transition w-full"
-          >
+        <h2 className="text-4xl font-bold text-center mb-6">Get In Touch</h2>
+        <form className="space-y-4" onSubmit={e=>e.preventDefault()}>
+          <input placeholder="Name"   className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
+          <input placeholder="Email"  className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
+          <textarea rows="4" placeholder="Message" className="w-full p-3 rounded bg-surface/80 focus:outline-none"/>
+          <button className="w-full bg-brand text-surface py-3 rounded-full font-semibold hover:bg-brand-dark transition">
             Send Message
           </button>
         </form>
