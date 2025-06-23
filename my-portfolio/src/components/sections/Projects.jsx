@@ -1,33 +1,37 @@
 import { projects } from '../../data/projects';
 import { motion } from 'framer-motion';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import CodeBracketIcon from '@heroicons/react/24/outline/CodeBracketIcon';
 
-function FallbackThumb() {
+function Thumb({ img, alt }) {
+  if (img) {
+    return <CardMedia component="img" height="180" image={img} alt={alt} />;
+  }
   return (
-    <div className="flex h-40 items-center justify-center bg-surface/60">
-      <CodeBracketIcon className="h-16 w-16 text-brand" />
+    <div className="flex h-44 items-center justify-center bg-surface/60">
+      <CodeBracketIcon className="h-16 w-16 text-brand/80" />
     </div>
   );
 }
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-surface/95">
+    <section id="projects" className="py-24 bg-surface/95">
       <motion.h2
-        className="text-4xl font-bold text-center mb-12"
+        className="text-4xl sm:text-5xl font-extrabold text-center text-gray-100 mb-16"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
         Latest Work
       </motion.h2>
 
-      <div className="container grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="container grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
         {projects.map((p, i) => (
           <motion.div
             key={p.title}
@@ -41,17 +45,19 @@ export default function Projects() {
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
+                borderRadius: '1rem',
               }}
             >
-              {p.img ? (
-                <CardMedia component="img" height="160" image={p.img} alt={p.title} />
-              ) : (
-                <FallbackThumb />
-              )}
+              <Thumb img={p.img} alt={p.title} />
 
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h6">{p.title}</Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                <Typography variant="h6" sx={{ mb: 0.5, fontWeight: 600 }}>
+                  {p.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ opacity: 0.8, fontSize: '0.9rem' }}
+                >
                   {p.blurb}
                 </Typography>
               </CardContent>
@@ -64,6 +70,8 @@ export default function Projects() {
                   bgcolor: 'brand.main',
                   '&:hover': { bgcolor: 'brand.dark' },
                   m: 2,
+                  textTransform: 'none',
+                  fontWeight: 600,
                 }}
                 fullWidth
               >

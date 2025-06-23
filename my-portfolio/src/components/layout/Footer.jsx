@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="py-8 text-center bg-surface">
-      <p className="text-gray-400">© {new Date().getFullYear()} Arnold Kebaso.</p>
+    <footer className="bg-surface py-10 text-center">
+      <p className="text-gray-500 text-sm">
+        © {new Date().getFullYear()} Arnold Kebaso. All rights reserved.
+      </p>
     </footer>
   );
 }
