@@ -1,6 +1,6 @@
 import { certs } from '../../data/certs';
 import { motion } from 'framer-motion';
-import BadgeCheckIcon from '@heroicons/react/24/solid/BadgeCheckIcon';
+import { CheckIcon } from '@heroicons/react/24/solid'; // Use CheckIcon instead
 
 export default function Achievements() {
   return (
@@ -28,7 +28,7 @@ export default function Achievements() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
           >
-            <BadgeCheckIcon className="absolute -top-4 -left-4 h-10 w-10 text-brand" />
+            <CheckIcon className="absolute -top-4 -left-4 h-10 w-10 text-brand" /> {/* Make sure this is CheckIcon */}
             <p className="font-semibold text-brand mb-2">{c.name}</p>
             <p className="text-sm text-gray-400 group-hover:underline">
               View credential →
