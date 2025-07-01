@@ -27,7 +27,7 @@ export default function Hero() {
       >
         {/* ─────────────── text column ─────────────── */}
         <div>
-          <h1 className="text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-6xl font-extrabold leading-tight mb-6 text-gray-100">
             Hello, I’m <span className="text-brand">Arnold Kebaso</span>
           </h1>
 

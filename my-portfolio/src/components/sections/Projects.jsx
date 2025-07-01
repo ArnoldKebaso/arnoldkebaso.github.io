@@ -31,7 +31,7 @@ export default function Projects() {
         Latest Work
       </motion.h2>
 
-      <div className="container grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="container grid gap-10 sm:grid-cols-2 xl:grid-cols-2">
         {projects.map((p, i) => (
           <motion.div
             key={p.title}

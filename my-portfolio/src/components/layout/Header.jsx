@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-surface/80 backdrop-blur">
       <div className="container flex items-center justify-between px-6 py-4">
-        <Link to="home" smooth duration={600} className="text-2xl font-bold">
+        <Link to="home" smooth duration={600} className="text-2xl font-bold text-gray-100">
           Arnold&nbsp;Kebaso
         </Link>
 
