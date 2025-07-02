@@ -1,19 +1,26 @@
+// src/components/sections/Projects.jsx
 import { projects } from '../../data/projects';
 import { motion } from 'framer-motion';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import CodeBracketIcon from '@heroicons/react/24/outline/CodeBracketIcon';
+import Button from '@mui/material/Button';
 
+/* ─── Thumbnail with 16:9 aspect ratio ───────────────────── */
 function Thumb({ img, alt }) {
-  if (img) {
-    return <CardMedia component="img" height="180" image={img} alt={alt} />;
-  }
   return (
-    <div className="flex h-44 items-center justify-center bg-surface/60">
-      <CodeBracketIcon className="h-16 w-16 text-brand/80" />
+    <div className="relative w-full aspect-video overflow-hidden rounded-t-2xl">
+      {img ? (
+        <motion.img
+          src={img}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+        />
+      ) : (
+        <div className="absolute inset-0 grid place-content-center bg-surface/60">
+          <CodeBracketIcon className="h-16 w-16 text-brand/80" />
+        </div>
+      )}
     </div>
   );
 }
@@ -31,53 +38,49 @@ export default function Projects() {
         Latest Work
       </motion.h2>
 
-      <div className="container grid gap-10 sm:grid-cols-2 xl:grid-cols-2">
+      <div className="container grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
         {projects.map((p, i) => (
           <motion.div
             key={p.title}
-            whileHover={{ y: -6 }}
-            transition={{ type: 'spring', stiffness: 200 }}
+            className="rounded-2xl bg-surface/80 ring-1 ring-white/5 backdrop-blur shadow-lg flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ y: -6, boxShadow: '0 15px 30px rgba(0,0,0,0.25)' }}
+            whileTap={{ scale: 0.95 }}
           >
-            <Card
+            {/* thumbnail */}
+            <Thumb img={p.img} alt={p.title} />
+
+            {/* body */}
+            <div className="flex flex-col flex-grow p-6">
+              <h3 className="text-lg font-semibold text-brand mb-1">
+                {p.title}
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed flex-grow">
+                {p.blurb}
+              </p>
+            </div>
+
+            {/* action */}
+            <Button
+              href={p.live || p.repo}
+              target="_blank"
+              rel="noreferrer"
+              variant="contained"
               sx={{
-                bgcolor: '#1e2538',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                borderRadius: '1rem',
+                bgcolor: 'brand.main',
+                '&:hover': { bgcolor: 'brand.dark' },
+                mx: 2,
+                mb: 3,
+                textTransform: 'none',
+                fontWeight: 600,
               }}
+              fullWidth
             >
-              <Thumb img={p.img} alt={p.title} />
-
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h6" sx={{ mb: 0.5, fontWeight: 600 }}>
-                  {p.title}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ opacity: 0.8, fontSize: '0.9rem' }}
-                >
-                  {p.blurb}
-                </Typography>
-              </CardContent>
-
-              <Button
-                href={p.live || p.repo}
-                target="_blank"
-                variant="contained"
-                sx={{
-                  bgcolor: 'brand.main',
-                  '&:hover': { bgcolor: 'brand.dark' },
-                  m: 2,
-                  textTransform: 'none',
-                  fontWeight: 600,
-                }}
-                fullWidth
-              >
-                {p.live ? 'Live Site' : 'GitHub'}
-              </Button>
-            </Card>
+              {p.live ? 'Live Site' : 'GitHub'}
+            </Button>
           </motion.div>
         ))}
       </div>
