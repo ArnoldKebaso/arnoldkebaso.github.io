@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 /* replace with your Apps-Script endpoint, or keep env-var */
-const ENDPOINT = import.meta.env.VITE_GSHEET_URL ?? '';
+const ENDPOINT = "https://docs.google.com/spreadsheets/d/1GgFmbDvj-NSFZqbDfa_2fSou_veSHsXyO9oTohRWv4Y/edit?gid=0#gid=0";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });

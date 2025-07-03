@@ -14,6 +14,8 @@ import { Typewriter } from 'react-simple-typewriter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import meIMG from '../../assets/me.jpg'; // Adjust the path as necessary
+import myCV from '../../assets/Arnold _Kebaso-CV.pdf'; // Adjust the path as necessary
 
 const roles = [
   'Full-Stack Developer',
@@ -91,7 +93,7 @@ export default function Hero() {
           </div>
 
           <a
-            href="/Arnold_Kebaso_Onchieku_CV.pdf"
+            href= {myCV}
             download
             className="inline-block bg-brand text-surface px-8 py-3 rounded-full font-semibold hover:bg-brand-dark transition shadow-md shadow-brand/30"
           >
@@ -106,7 +108,7 @@ export default function Hero() {
           className="mx-auto w-64 sm:w-80 lg:w-full max-w-sm"
         >
           <img
-            src="/src/assets/me.jpg"
+            src={meIMG}
             onError={(e) => (e.currentTarget.style.display = 'none')}
             alt="Arnold Kebaso"
             className="rounded-3xl shadow-2xl w-full object-cover"
