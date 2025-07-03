@@ -14,8 +14,8 @@ import { Typewriter } from 'react-simple-typewriter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import meIMG from '../../assets/me.jpg'; // Adjust the path as necessary
-import myCV from '../../assets/Arnold _Kebaso-CV.pdf'; // Adjust the path as necessary
+import meIMG from '/assets/me.jpg'; // Adjust the path as necessary
+import myCV from '/assets/Arnold _Kebaso-CV.pdf'; // Adjust the path as necessary
 
 const roles = [
   'Full-Stack Developer',

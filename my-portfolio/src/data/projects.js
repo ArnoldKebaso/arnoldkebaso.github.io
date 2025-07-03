@@ -1,10 +1,10 @@
 /*  src/data/projects.js  */
 
 /* ─── image imports ───  (adjust the relative path if this file lives elsewhere) */
-import floodImg     from '../assets/flood.jpg';
-import mentorImg    from '../assets/mentor.jpg';
-import doctorImg    from '../assets/doctor.jpg';
-import laundryImg   from '../assets/laundry.jpg';
+import floodImg     from '/assets/flood.jpg';
+import mentorImg    from '/assets/mentor.jpg';
+import doctorImg    from '/assets/doctor.jpg';
+import laundryImg   from '/assets/laundry.jpg';
 
 /* ─── project list ─── */
 export const projects = [
