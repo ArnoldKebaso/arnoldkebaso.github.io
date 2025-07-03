@@ -72,8 +72,10 @@ export default function About() {
           </h2>
 
           <p className="mb-8 leading-relaxed text-gray-400">
-            Final-year Computer Science student at Egerton University who loves
-            turning real-world pain-points into delightful digital experiences.
+            Full stack developer with a passion for technology, secure DevOps and data-driven innovation. Designed full
+            stack solutions that ingest, analyze and visualize real-time data for disaster-response, fintech and IoT use
+            cases. Adept at evaluating control gaps, automating tests and translating complex technical findings into clear 
+            business language. 
             Over the past three years I’ve:
           </p>
 
