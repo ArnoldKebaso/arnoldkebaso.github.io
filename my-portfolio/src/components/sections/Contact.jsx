@@ -1,20 +1,22 @@
 // src/components/sections/Contact.jsx
 import React, { useState } from 'react'
-import { motion }         from 'framer-motion'
+import { motion } from 'framer-motion'
+import ClipLoader from 'react-spinners/ClipLoader'
 
-// your Apps-Script URL (no env vars needed)
+// your Apps-Script URL
 const SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbxCBrj4vJsThwXiNd34UsjFEnVnYovApx2GD9rC1mVPGj5Ruz5jeqmJshRZE7YzjZiEbQ/exec'
 
 export default function Contact() {
-  const [status, setStatus] = useState('idle') // 'idle' | 'success' | 'error'
+  const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success' | 'error'
 
   async function onSubmit(e) {
     e.preventDefault()
-    setStatus('idle')
+    const form = e.currentTarget            // grab the form element
+    setStatus('loading')
 
-    // collect form data as x-www-form-urlencoded
-    const formData = new URLSearchParams(new FormData(e.target)).toString()
+    // serialize form as x-www-form-urlencoded
+    const formData = new URLSearchParams(new FormData(form)).toString()
 
     try {
       const res = await fetch(SCRIPT_URL, {
@@ -25,8 +27,8 @@ export default function Contact() {
       const json = await res.json()
 
       if (json.result === 'success') {
+        form.reset()                         // reset the form
         setStatus('success')
-        e.target.reset()
       } else {
         console.error('Sheets error:', json.error)
         setStatus('error')
@@ -65,6 +67,7 @@ export default function Contact() {
                 "
               />
             </label>
+
             <label>
               <span className="text-gray-200 mb-1 block">Email</span>
               <input
@@ -98,23 +101,26 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="
-              w-full text-center rounded-full bg-brand py-3 font-semibold
-              text-surface hover:bg-brand-dark transition
-            "
+            disabled={status === 'loading'}
+            className={`
+              flex items-center justify-center gap-2 w-full rounded-full
+              bg-brand py-3 font-semibold text-surface transition
+              ${status === 'loading' ? 'cursor-wait opacity-80' : 'hover:bg-brand-dark'}
+            `}
           >
-            Send Message
+            <ClipLoader size={20} color="#ffffff" loading={status === 'loading'} />
+            {status === 'loading' ? 'Sending…' : 'Send Message'}
           </button>
         </form>
 
         {status === 'success' && (
-          <p className="text-center text-brand">
-            Thank you! I’ll reply soon.
+          <p className="text-center text-brand mt-4">
+            🎉 Thank you! I’ll reply soon.
           </p>
         )}
         {status === 'error' && (
-          <p className="text-center text-red-400">
-            Oops—something went wrong. Try again later.
+          <p className="text-center text-red-400 mt-4">
+            ⚠️ Oops—something went wrong. Try again later.
           </p>
         )}
       </motion.div>
