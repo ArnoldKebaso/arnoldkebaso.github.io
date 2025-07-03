@@ -19,7 +19,7 @@ const bullets = [
   },
   {
     icon: LightBulbIcon,
-    text: 'Thrives at the intersection of IoT, Cloud & Data Pipelines',
+    text: 'Thriving at the intersection of IoT, Cloud & Data Pipelines',
   },
   {
     icon: CubeTransparentIcon,
@@ -72,9 +72,10 @@ export default function About() {
           </h2>
 
           <p className="mb-8 leading-relaxed text-gray-400">
-            Final-year Computer Science student at Egerton University who loves
-            turning real-world pain-points into delightful digital experiences.
-            Over the past three years I’ve:
+            Full stack developer with a passion for technology, secure DevOps and data-driven innovation. Designed full
+            stack solutions that ingest, analyze and visualize real-time data for disaster-response, fintech and IoT use
+            cases. Adept at evaluating control gaps, automating tests and translating complex technical findings into clear 
+            business language. I have been: 
           </p>
 
           <ul className="space-y-5 text-gray-200">
