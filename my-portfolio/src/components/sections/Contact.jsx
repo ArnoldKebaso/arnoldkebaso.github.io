@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 /* replace with your Apps-Script endpoint, or keep env-var */
-const ENDPOINT = "https://docs.google.com/spreadsheets/d/1GgFmbDvj-NSFZqbDfa_2fSou_veSHsXyO9oTohRWv4Y/edit?gid=0#gid=0";
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbwXuhMpNjHac3fo0In4zqHburIpFlThJwraBBGT4Mm-xegwm6ug7kOUZuHHII5k_kbd2A/exec";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -84,7 +84,7 @@ export default function Contact() {
               name="message"
               value={form.message}
               onChange={onChange}
-              className="w-full rounded-lg bg-surface/60 p-3 ring-1 ring-white/10 focus:ring-brand outline-none resize-y"
+              className="w-full rounded-lg bg-surface/60 p-3 ring-1 ring-white/10 focus:ring-brand outline-none resize-y text-gray-100 placeholder-gray-500"
             />
           </label>
 
