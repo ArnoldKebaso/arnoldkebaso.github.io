@@ -7,10 +7,13 @@ import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Achievements from './components/sections/Achievements';
 import Contact from './components/sections/Contact';
+import SmoothScroll from './components/ui/SmoothScroll';
+import PageLoader from './components/ui/PageLoader';
 
 export default function App(){
   return(
-    <>
+    <PageLoader>
+      <SmoothScroll />
       <Header/>
       <main className="scroll-smooth">
         <Hero/>
@@ -22,6 +25,6 @@ export default function App(){
         <Contact/>
       </main>
       <Footer/>
-    </>
+    </PageLoader>
   );
 }
