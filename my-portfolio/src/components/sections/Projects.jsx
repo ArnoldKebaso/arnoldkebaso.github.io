@@ -82,7 +82,7 @@ export default function Projects() {
               className="group overflow-hidden hover:shadow-2xl transition-all duration-500"
               glowColor="brand"
             >
-              <Thumb img={project.image} alt={project.title} />
+              <Thumb img={project.img} alt={project.title} />
               
               <div className="p-6 space-y-4">
                 <motion.h3 
@@ -93,43 +93,25 @@ export default function Projects() {
                 </motion.h3>
                 
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  {project.description}
+                  {project.blurb}
                 </p>
                 
-                {/* Tech stack tags */}
-                {project.technologies && (
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech, index) => (
-                      <motion.span
-                        key={tech}
-                        className="px-3 py-1 text-xs bg-brand/20 text-brand rounded-full border border-brand/30"
-                        whileHover={{ scale: 1.1 }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.1 * index }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                )}
-                
                 <div className="flex gap-3 pt-4">
-                  {project.liveUrl && (
+                  {project.live && (
                     <GlowButton
-                      href={project.liveUrl}
+                      href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="primary"
                       size="sm"
                       className="flex-1"
                     >
-                      Live Site
+                      Live Demo
                     </GlowButton>
                   )}
-                  {project.githubUrl && (
+                  {project.repo && (
                     <GlowButton
-                      href={project.githubUrl}
+                      href={project.repo}
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="secondary"

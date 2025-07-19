@@ -1,5 +1,13 @@
 /**
- *  src/components/sections/About.jsx  –  v3 Enhanced
+ *  src/cimport GlowCard from '../ui/GlowCard';
+
+/* ─── About.jsx – Enhanced version ─── 
+ *  • diagonal gradient backdrop
+ *  • larger, bolder heading on desktop
+ *  • mobile-first order (image first, text second)
+ *  • stagger-in bullet list
+ *  • teal "halo" + subtle hover tilt on photo
+ */ts/sections/About.jsx  –  v3 Enhanced
  *  • Enhanced animations and visual effects
  *  • Gradient text effects
  *  • Improved interactive elements
