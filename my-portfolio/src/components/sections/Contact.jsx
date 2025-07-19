@@ -2,6 +2,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import ClipLoader from 'react-spinners/ClipLoader'
+import FloatingElement from '../ui/FloatingElement'
+import GradientText from '../ui/GradientText'
+import GlowCard from '../ui/GlowCard'
+import GlowButton from '../ui/GlowButton'
 
 // your Apps-Script URL
 const SCRIPT_URL =
