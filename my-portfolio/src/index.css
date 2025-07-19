@@ -1,10 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101625;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #18e8ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #12c5db;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(24, 232, 255, 0.3);
+  color: #ffffff;
+}
+
 /* tiny helper for hero dots */
 .hero-bg{
   background-image:
     radial-gradient(circle at 20% 30%,#18e8ff22 0,transparent 50%),
     radial-gradient(circle at 80% 25%,#18e8ff11 0,transparent 50%),
     radial-gradient(circle at 50% 80%,#18e8ff22 0,transparent 50%);
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
 }

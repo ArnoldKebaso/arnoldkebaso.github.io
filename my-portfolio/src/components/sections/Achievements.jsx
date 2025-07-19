@@ -1,60 +1,95 @@
-/*  src/components/sections/Achievements.jsx  –  v2
- *  • auto-fitting grid that grows gracefully (CSS grid repeat auto-fit)
- *  • clearly visible card outline (brand-tinted ring + subtle backdrop blur)
- *  • hover raises & glows; focus-visible outline for keyboard users
- *  • Heroicons CheckCircle as badge
+/*  src/components/sections/Achievements.jsx  –  v3 Enhanced
+ *  • Enhanced visual effects and animations
+ *  • Gradient text and glow effects
+ *  • Better interactive elements
+ *  • Improved responsive design
  */
 
 import { certs } from '../../data/certs';
 import { motion } from 'framer-motion';
 import CheckCircleIcon from '@heroicons/react/24/solid/CheckCircleIcon';
+import FloatingElement from '../ui/FloatingElement';
+import GradientText from '../ui/GradientText';
+import GlowCard from '../ui/GlowCard';
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 bg-surface">
+    <section id="achievements" className="py-24 bg-surface relative overflow-hidden">
+      {/* Background effects */}
+      <div className="pointer-events-none absolute top-0 left-1/3 h-[40rem] w-[40rem] rounded-full bg-accent-purple/5 blur-3xl animate-float" />
+      <div className="pointer-events-none absolute bottom-0 right-1/3 h-[35rem] w-[35rem] rounded-full bg-brand/5 blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+
       {/* heading */}
-      <motion.h2
-        className="text-4xl sm:text-5xl font-extrabold text-center text-gray-100 mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        Certifications
-      </motion.h2>
+      <FloatingElement direction="up" delay={0.1}>
+        <motion.h2
+          className="text-4xl sm:text-5xl font-extrabold text-center text-gray-100 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <GradientText gradient="rainbow">Certifications</GradientText>
+        </motion.h2>
+      </FloatingElement>
 
-      {/* auto-fit grid: cards keep ± 280 px, wrap as needed */}
-      <div className="container grid gap-8 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-        {certs.map((c, i) => (
-          <motion.a
-            key={c.name}
-            href={c.link}
-            target="_blank"
-            rel="noreferrer"
-            className="relative block rounded-2xl bg-surface/80 backdrop-blur
-                       ring-2 ring-brand/30 hover:ring-brand transition
-                       p-8 shadow-md hover:shadow-brand/40
-                       focus-visible:outline-none focus-visible:ring-4
-                       focus-visible:ring-brand/60"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.96 }}
+      {/* Enhanced grid with better spacing */}
+      <div className="container grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {certs.map((cert, i) => (
+          <FloatingElement 
+            key={cert.name}
+            direction="up"
+            delay={i * 0.1}
+            scale
           >
-            {/* badge icon */}
-            <CheckCircleIcon className="absolute -top-4 -left-4 h-10 w-10 text-brand" />
+            <motion.a
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              className="block group"
+              whileHover={{ y: -8 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <GlowCard 
+                className="relative p-6 h-full hover:shadow-2xl transition-all duration-500"
+                glowColor="brand"
+              >
+                {/* Enhanced badge icon with animation */}
+                <motion.div
+                  className="absolute -top-3 -right-3"
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <CheckCircleIcon className="h-8 w-8 text-brand drop-shadow-lg" />
+                </motion.div>
 
-            <p className="font-semibold text-brand mb-2 leading-snug">
-              {c.name}
-            </p>
-            <p className="text-sm text-gray-300 group-hover:underline">
-              View credential →
-            </p>
-          </motion.a>
+                <div className="space-y-4">
+                  <motion.h3 
+                    className="font-bold text-lg leading-tight group-hover:text-brand transition-colors duration-300"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <GradientText gradient="brand">{cert.name}</GradientText>
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="text-gray-400 text-sm"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    View credential →
+                  </motion.p>
+                </div>
+
+                {/* Hover overlay effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand/5 via-transparent to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </GlowCard>
+            </motion.a>
+          </FloatingElement>
         ))}
       </div>
     </section>
   );
 }
+           
