@@ -100,11 +100,3 @@ export default function Skills() {
     </section>
   );
 }
-          >
-            <Ring {...s} />
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}

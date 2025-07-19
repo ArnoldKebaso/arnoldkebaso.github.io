@@ -92,13 +92,4 @@ export default function Achievements() {
     </section>
   );
 }
-            </p>
-            <p className="text-sm text-gray-300 group-hover:underline">
-              View credential →
-            </p>
-          </motion.a>
-        ))}
-      </div>
-    </section>
-  );
-}
+           

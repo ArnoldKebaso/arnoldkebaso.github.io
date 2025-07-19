@@ -143,20 +143,4 @@ export default function Header() {
     </motion.header>
   );
 }
-            <Link
-              key={id}
-              to={id}
-              smooth
-              offset={-70}
-              duration={600}
-              onClick={() => setOpen(false)}
-              className="block px-6 py-4 text-gray-200 capitalize hover:bg-surface/60"
-            >
-              {id}
-            </Link>
-          ))}
-        </div>
-      )}
-    </header>
-  );
-}
+         
