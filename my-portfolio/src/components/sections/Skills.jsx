@@ -93,7 +93,7 @@ export default function Skills() {
               stiffness: 100
             }}
           >
-            <Ring pct={skill.percentage} label={skill.label} />
+            <Ring pct={skill.pct} label={skill.label} />
           </motion.div>
         ))}
       </div>
