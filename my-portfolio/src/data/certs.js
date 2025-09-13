@@ -10,6 +10,7 @@ export const certs = [
   { name: 'Cloud Infrastructure Technologies', link: 'https://www.credly.com/badges/0f9d4b86-b6a5-460e-9791-be21b47f9686/public_url' },
   { name: 'Introduction to Kubernetes', link: 'https://www.credly.com/badges/30a328ce-2315-4fbb-95fc-6350be08192d/public_url' },
   { name: 'Kubernetes and Cloud Native Essentials', link: 'https://www.credly.com/badges/30a328ce-2315-4fbb-95fc-6350be08192d/public_url' },
+  { name: 'Kubernetes and Cloud Native Associate', link: 'https://www.credly.com/badges/aa281cec-fd52-4d29-99b2-38cdbfb24ebf/linked_in_profile' },
   
   
 ];
